@@ -1,0 +1,32 @@
+//Example: Generate random numbers 1..10. 
+//randNext : ULINT := 42; //required external variable with a seed
+//x : uint := rand(1,10)
+//
+//Brief: Will give you a random number between lower och upper
+//Requires an external variable: randNext:ULINT:=<seed>;
+//Ref: Bilting, U. Vägen Till C. Studentlitteratur. 2011.
+FUNCTION rand : UINT
+VAR_INPUT
+	lower:UINT;
+	upper:UINT;
+END_VAR
+VAR
+	range:UINT:=upper-lower+1;
+	interval:UINT:=c4/range;
+	preRand:UINT;
+END_VAR
+VAR CONSTANT
+	c1:UDINT:=1103515245;
+	c2:UINT:=12345;
+	c3:UDINT:=65536;
+	c4:UINT:=32768;
+END_VAR
+
+randNext := randNext * c1 + c2;
+preRand := ULINT_TO_UINT((randNext/c3) MOD c4);
+IF interval > 0 THEN
+	rand := (preRand+lower*interval-1)/interval; 
+ELSE
+	rand := preRand;
+END_IF;
+RETURN;
