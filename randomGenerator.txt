@@ -4,7 +4,10 @@
 //
 //Brief: Will give you a random number between lower och upper
 //Requires an external variable: randNext:ULINT:=<seed>;
-//Ref: Bilting, U. Vägen Till C. Studentlitteratur. 2011.
+//Ref: Bilting, U. VÃ¤gen Till C. Studentlitteratur. 2011.
+//
+// Created by: Alexander Jaworowski 2015-02-05
+// github.com/alexjaw/randomGenerator
 FUNCTION rand : UINT
 VAR_INPUT
 	lower:UINT;
